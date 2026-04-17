@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Automatizador de Email</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="app">
+  <div class="header">
+    <div class="logo">
+      <svg viewBox="0 0 24 24">
+        <path d="M4 4h16v12H4z" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M4 4l8 8 8-8" stroke-linecap="round"/>
+        <path d="M4 20h16" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div>
+      <div class="header-title">Automatizador de email</div>
+      <div class="header-sub">Gmail API — envio com anexos</div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div id="auth-section">
+      <div class="label">Autenticação Gmail</div>
+      <button class="grp-btn" id="auth-btn" onclick="startAuth()" style="width:100%;padding:11px;border-radius:8px">
+        <span id="auth-btn-txt">Conectar conta Google</span>
+      </button>
+      <div style="font-size:11px;color:#555;margin-top:8px;text-align:center">
+        Necessário para envio com anexos via Gmail API
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div>
+      <div class="label">Grupo destinatário</div>
+      <div class="group-row">
+        <button class="grp-btn" onclick="selectGroup('lapa',this)">Lapa</button>
+        <button class="grp-btn" onclick="selectGroup('perdizes',this)">Perdizes</button>
+        <button class="grp-btn" onclick="selectGroup('hig',this)">Hig</button>
+        <button class="grp-btn" onclick="selectGroup('ce',this)">C.E</button>
+      </div>
+    </div>
+
+    <div>
+      <div class="label">Destinatários</div>
+      <div class="recipients-area" id="rec-area">
+        <span class="empty-hint">Selecione um grupo acima</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="label">Assunto</div>
+      <input class="inp" type="text" id="subject" placeholder="Assunto do email..." oninput="updatePreview()">
+    </div>
+
+    <div>
+      <div class="label">Notas e custos</div>
+      <textarea class="inp" id="notes" placeholder="Cole ou escreva o conteúdo..." oninput="updatePreview()"></textarea>
+    </div>
+
+    <div>
+      <div class="label">Att (remetente)</div>
+      <input class="inp" type="text" id="att" value="Wendell" oninput="updatePreview()">
+    </div>
+
+    <div>
+      <div class="label">Anexos</div>
+      <div class="attach-zone" onclick="document.getElementById('attach-input').click()">
+        <div class="attach-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M21.44 11.05l-9.19 9.19a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="attach-txt">Arraste ou <span>escolha arquivos</span></div>
+      </div>
+
+      <input type="file" id="attach-input" multiple onchange="handleFiles(event)">
+      <div class="file-chips" id="file-chips"></div>
+    </div>
+
+    <hr class="divider">
+
+    <div>
+      <div class="label">Pré-visualização</div>
+      <div class="preview-box" id="preview">Preencha os campos acima...</div>
+    </div>
+
+    <button class="send-btn" id="send-btn" onclick="sendEmail()">Enviar email</button>
+    <div class="status-bar" id="status"></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>
