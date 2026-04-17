@@ -1,0 +1,50 @@
+:root {
+  --primary-cyan: #0ff;
+  --dark-cyan: #00d4d4;
+  --bg-main: #0d0d0d;
+  --bg-secondary: #151515;
+  --border-color: rgba(0, 255, 255, 0.2);
+  --text-main: #e0e0e0;
+  --text-dim: #888;
+}
+
+.EmailApp {
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-family: sans-serif;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.Header {
+  background: #111;
+  border-bottom: 1px solid var(--border-color);
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.GroupButton {
+  padding: 9px 20px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--primary-cyan);
+  cursor: pointer;
+  transition: all .15s;
+}
+
+.GroupButton.active {
+  background: var(--primary-cyan);
+  color: #000;
+}
+
+.PreviewBox {
+  background: #111;
+  border: 1px solid var(--border-color);
+  padding: 14px 16px;
+  font-family: monospace;
+  white-space: pre-wrap;
+}
+/* ... Adicione aqui o restante das classes do seu <style> original ... */
